@@ -20,21 +20,26 @@ The value i am trying to take are as follow :
      - this one is also an hexadecimal value. it's the color of the background
      - Both have the same value. but they can support different values. as long as the x1 and y1 + x2 and y2 have the correct coordinate and colors
 
+
 ## Usage
 How to use it :
   1. Launch the script (probably an exe file for you)
   2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#In-case-of-problems)
 
+
 ## In case of problems
 The script doesn't work : what can you do ?
 [If the mouse move at the wrong place](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
+
 [If the mouse doesn't move](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
+
 follow this steps :
   1. Open the Ini file that has been created with the first execution of the script ("check_value.ini")
   2. Open the league client
   3. Be ready to press F2 on some element on the screen (Something that is not gonna change color when you go on the shop, like the RP logo)
   4. Press F2 on the Riot logo when the screen is darker (match pop-up)
   5. Modify the Ini file with the new values (copied in your clipboard)
+
 
 ## If it still doesn't works
 ### Problem n1 -> the script is moving the mouse at the wrong place
@@ -44,6 +49,7 @@ follow this steps :
   4. Press F2 where you want the mouse to click
   5. get the X and Y value
   6. Modify the ini file in the [Coordinate_click] section by your values
+
 
 ### Problem n2 -> the mouse doesn't move
 In this case, it's less specific. but we can work it out anyway
