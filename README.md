@@ -34,7 +34,7 @@ If the mouse move at the wrong place : [click Here](https://github.com/Miniflint
 
 If the mouse doesn't move : [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
 
-follow this steps :
+### follow this steps :
   1. Open the Ini file that has been created with the first execution of the script ("check_value.ini")
   2. Open the league client
   3. Be ready to press F2 on some element on the screen (Something that is not gonna change color when you go on the shop, like the RP logo)
