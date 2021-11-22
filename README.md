@@ -30,9 +30,9 @@ How to use it :
 ## In case of problems
 The script doesn't work : what can you do ?
 
-If the mouse move at the wrong place : [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
+__If the mouse move at the wrong place :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
 
-If the mouse doesn't move : [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
+__If the mouse doesn't move :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
 
 ### follow this steps :
   1. Open the Ini file that has been created with the first execution of the script ("check_value.ini")
