@@ -11,19 +11,21 @@ The value i am trying to take are as follow :
   2. [Coordinate_click]
      - ~ the middle of the _accept match_ button (so even with a bit of misclick it will still click on it)
   3. [Accepting_color]
-     - This one is an hexadecimal Value. It's the darker RP logo (darker because of when the match pop-up)
+     - darker RP logo (darker because of when the match pop-up) in hexadecimal
   4. [ChangingIcon_menu]
+     - Summoner's icon menu :
      - because nothing is perfect, when you try to change your summoner's icon, it has the same color as when the match pop-up
      - So i am making a double if condition to check if we are changing the icon or if we are accepting a match
      - all of the coordinate are different position of the background menu (0x130A01)
   5. [Icon_menu_color]
+     - Color of the summoner's icon menu's background 
      - this one is also an hexadecimal value. it's the color of the background
      - Both have the same value. but they can support different values. as long as the x1 and y1 + x2 and y2 have the correct coordinate and colors
 
 
 ## Usage
 How to use it :
-  1. Launch the script (probably an exe file for you)
+  1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
   2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#In-case-of-problems)
 
 
