@@ -1,7 +1,7 @@
 # AutoAccept-Lol
 # USE AUTOACCEPT V2
 ## Useful tools :
-F2 -> get the position of the mouse (x, y) + the color (in hex)
+F2 -> get the position of the mouse (x, y) + the color (in hex) of the active window
 
 F11 -> pause the script
 
