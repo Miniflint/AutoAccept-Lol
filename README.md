@@ -2,6 +2,7 @@
 # USE AUTOACCEPT V2
 ## Useful tools :
 F2 -> get the position of the mouse (x, y) + the color (in hex)
+
 F11 -> pause the script
 
 ## Default Values
