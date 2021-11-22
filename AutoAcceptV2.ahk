@@ -28,12 +28,12 @@ acceptLobby(all_values) {
 		if (lobby_color = all_values[5] && icon_color) {
 			PixelGetColor, icon_color, all_values[6], all_values[7]
 			PixelGetColor, icon_color_two, all_values[8], all_values[9]
-			if (icon_color = all_values[10] && icon_color_two = all_values[10])
+			if (icon_color != all_values[10] && icon_color_two != all_values[10])
 			{
 				sleep 200
 				click, all_values[3], all_values[4]
 				sleep 200
-			; checkIfStillOnLobby()
+				; checkIfStillOnLobby()
 			}
 		} else {
 			sleep, 400
