@@ -29,6 +29,7 @@ How to use it :
 
 ## In case of problems
 The script doesn't work : what can you do ?
+
 [If the mouse move at the wrong place](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
 
 [If the mouse doesn't move](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
