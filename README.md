@@ -53,7 +53,7 @@ while True {
 ### Explanation
 `acceptLobby(all_values) {` : Create a function that take 1 parameter, and open the bracket (1)
 
-`While True` : While it's True is True (infinite loop) (2)
+`While True {` : While it's True is True (infinite loop) (2)
 
 `PixelGetColor` : Get the color of [Coordinate_check] pixels and store the variable in "Lobby_color"
 
@@ -64,8 +64,10 @@ while True {
 `Other 2 pixelGetColor` : same but for x2 - y3
 
 `if (icon_color != all_values[12] && icon_color_two != all_values[13]
-	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition (4)
-	
+	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition
+
+`{` open the bracket of cond 2 (4)
+
 `click_x := all_values[3]` : Store the value of [Coordinate_click] x in "click_x"
 
 `click_y := all_values[4]` : Store the value of [Coordinate_click] y in "click_y"
