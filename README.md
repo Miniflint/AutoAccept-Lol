@@ -1,6 +1,7 @@
 # AutoAccept-Lol
 ## Useful tools :
 F2 -> get the position of the mouse (x, y) + the color (in hex) of the active window
+Display it in a messagebox and copy it to the clipboard
 
 F11 -> pause the script
 
