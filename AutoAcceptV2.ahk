@@ -2,38 +2,26 @@ var_check 		:= "Coordinate_check"
 var_click 		:= "Coordinate_click"
 var_color 		:= "Accepting_color"
 var_icons		:= "ChangingIcon_menu"
-
-/*
-checkIfStillOnLobby() {
-	xLobby := 359, yLobby := 544
-	xRunes := 88, yRunes := 70
-	colorRunes := 0x143746, colorLobby := 0x2A556A, colorLobbySelected := 0x9A8D71
-	while True {
-        PixelGetColor, currentColorLobby, xLobby, yLobby
-        PixelGetColor, currentColorRunes, xRunes, yRunes
-        if (currentColorLobby = colorLobby || currentColorRunes = colorRunes || currentColorLobby = colorLobbySelected) {
-            sleep 700
-        } else {
-            main()
-        }
-    } 
-}
-*/
+ico_color		:= "Icon_menu_color"
 
 acceptLobby(all_values) {
 	;1 = lobby_x_check, 2 = lobby_y_check, 3 = lobby_x_click, 4 = lobby_y_click, 5 = lobby_c_check
-	;6 = icon_x1_check, 7 = icon_y1_check, 8 = icon_x2_check, 9 = icon_y2_check, 10 = icon_cr_check
+	;6 = icon_x1_check, 7 = icon_y1_check, 8 = icon_x2_check, 9 = icon_y2_check, 10 = icon_x3_check
+	;11 = icon_y3_check, 12 = icon_cr_check, 13 = icon_cr_check_two, 14 = icon_cr_check_three
     while True {
 		PixelGetColor, lobby_color, all_values[1], all_values[2]
-		if (lobby_color = all_values[5] && icon_color) {
-			PixelGetColor, icon_color, all_values[6], all_values[7]
-			PixelGetColor, icon_color_two, all_values[8], all_values[9]
-			if (icon_color != all_values[10] && icon_color_two != all_values[10])
+		if (lobby_color = all_values[5]) {
+			PixelGetColor, icon_color, all_values[6], all_values[7] ; x1 - y1
+			PixelGetColor, icon_color_two, all_values[8], all_values[9] ; x2 - y2
+			PixelGetColor, icon_color_three, all_values[10], all_values[11] ; x3 - y3
+			if (icon_color != all_values[12] && icon_color_two != all_values[13]
+					&& icon_color_three != all_values[14])
 			{
+				click_x := all_values[3]
+				click_y := all_values[4]
 				sleep 200
-				click, all_values[3], all_values[4]
+				click, %click_x%, %click_y%
 				sleep 200
-				; checkIfStillOnLobby()
 			}
 		} else {
 			sleep, 400
@@ -47,7 +35,7 @@ ini_write(x, y, name1, name2, section_name, file_name) {
 }
 
 read_ini(file_name) {
-	global var_check, var_click, var_color, var_icons
+	global var_check, var_click, var_color, var_icons, ico_color
 
 	IniRead, lobby_x_check, %file_name%, %var_check%, x
     IniRead, lobby_y_check, %file_name%, %var_check%, y
@@ -59,23 +47,24 @@ read_ini(file_name) {
 	IniRead, icon_y1_check, %file_name%, %var_icons%, y1
 	IniRead, icon_x2_check, %file_name%, %var_icons%, x2
 	IniRead, icon_y2_check, %file_name%, %var_icons%, y2
-    IniRead, icon_cr_check, %file_name%,  Color_icon, Color
+	IniRead, icon_x3_check, %file_name%, %var_icons%, x3
+	IniRead, icon_y3_check, %file_name%, %var_icons%, y3
+    IniRead, icon_cr_check, %file_name%,  %ico_color%, icon_color_one
+	IniRead, icon_cr_check_two, %file_name%,  %ico_color%, icon_color_two
+	IniRead, icon_cr_check_three, %file_name%,  %ico_color%, icon_color_three
 
-	huge_list := [ lobby_x_check
-		, lobby_y_check
-		, lobby_x_click
-		, lobby_y_click
+	huge_list := [ lobby_x_check, lobby_y_check
+		, lobby_x_click, lobby_y_click
 		, lobby_c_check
-		, icon_x1_check
-		, icon_y1_check
-		, icon_x2_check
-		, icon_y2_check
-		, icon_cr_check ]
+		, icon_x1_check, icon_y1_check
+		, icon_x2_check, icon_y2_check
+		, icon_x3_check, icon_y3_check
+		, icon_cr_check, icon_cr_check_two, icon_cr_check_three ]
 	return huge_list
 }
 
 write_default_values(file_name) {
-	global var_check, var_click, var_icons, var_color
+	global var_check, var_click, var_icons, var_color, ico_color
 
 	ini_write(775, 22, "x", "y", var_check, file_name)
 	ini_write(500, 450, "x", "y", var_click, file_name)
@@ -83,7 +72,9 @@ write_default_values(file_name) {
 
 	ini_write(227, 100, "x1", "y1", var_icons, file_name)
 	ini_write(648, 109, "x2", "y2", var_icons, file_name)
-	Iniwrite, 0x130A01, %file_name%, Color_icon, icon_color
+	ini_write(440, 254, "x3", "y3", var_icons, file_name)
+	ini_write(0x130A01, 0x130A01, "icon_color_one", "icon_color_two", ico_color, file_name)
+	IniWrite, 0x130A01, %file_name%, %ico_color%, icon_color_three
 }
 
 main() {
