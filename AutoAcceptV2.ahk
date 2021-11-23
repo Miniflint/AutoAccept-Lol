@@ -106,9 +106,7 @@ get_values(file_name, section_list) {
 			for i in new_list
 			{
 				if (list_key[1] = new_list[i])
-				{
 					break
-				}
 				if (i = new_list.MaxIndex() && list_key[1] != new_list[i])
 				{
 					msgbox, % "Error :`nValue not found :`n" list_key[1] " found in " section_name
