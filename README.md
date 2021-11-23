@@ -30,7 +30,7 @@ The value i am trying to take for the script are as follow :
 ## Usage
 How to use it :
   1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
-  2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#In-case-of-problems)
+  2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#In-case-of-problems)
 
 ## Code
 ### Brut Code
@@ -96,9 +96,9 @@ while True {
 ## In case of problems
 ### The script doesn't work : what can you do ?
 
-__If the mouse move at the wrong place :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
+__If the mouse move at the wrong place :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
 
-__If the mouse doesn't move :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
+__If the mouse doesn't move :__ [click Here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Problem-n2-->-the-mouse-doesn't-move)
 
 ### follow this steps :
   1. Open the Ini file that has been created with the first execution of the script ("check_value.ini")
@@ -124,4 +124,4 @@ In this case, it's less specific. but we can work it out anyway
   2. Get un-animated element on the screen
   3. Press F2
   4. Try to change a value until it work (x and y should leads to one hexadecimal color)
-  5. If the mouse go to the wrong pos, [Check this](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
+  5. If the mouse go to the wrong pos, [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)
