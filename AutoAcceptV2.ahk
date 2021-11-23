@@ -88,11 +88,79 @@ main() {
 
 main()
 
+get_values(file_name, section_list) {
+	new_list := ["x", "y", "x1", "y1", "x2", "y2", "x3", "y3", "Color"
+	, "icon_color_one", "icon_color_two", "icon_color_three"]
+	section_list.MaxIndex()
+	for values in section_list
+	{
+		section_name := section_list[values]
+		IniRead, check_str, %file_name%, %section_name%
+		list_key := []
+		x := 0
+		loop, Parse, check_str, `n
+		{
+			x += 1
+			list_key[x] := A_LoopField
+			list_key := StrSplit(list_key[x], "=")
+			for i in new_list
+			{
+				if (list_key[1] = new_list[i])
+				{
+					break
+				}
+				if (i = new_list.MaxIndex() && list_key[1] != new_list[i])
+				{
+					msgbox, % "Error :`nValue not found :`n" list_key[1] " found in " section_name
+					return 0
+				}
+			}
+		}
+	}
+	return 1
+}
+
+checking_file() {
+	global var_check, var_click, var_color, var_icons, ico_color
+	file_name := "check_value.ini"
+	my_check_list := [var_check, var_click, var_color, var_icons, ico_color]
+	IniRead, sections, %file_name%
+	section_name := []
+	loop, Parse, sections, `n
+	{
+		x += 1
+		nb_section := a_index
+		section_name[x] := A_LoopField
+	}
+	if (nb_section != my_check_list.MaxIndex())
+	{
+		MsgBox, % "Incorrect number of sections :`n" %nb_section% " instead of " my_check_list.MaxIndex()
+		return 0
+	}
+	for x in my_check_list
+	{
+		if (section_name[x] != my_check_list[x])
+		{
+			MsgBox, % "Error :`nWrong section name : `n" section_name[x] " instead of " my_check_list[x]
+			return 0
+		}
+	}
+	check_section := get_values(file_name, section_name)
+	if (!check_section)
+		return 0
+	Return 1
+}
+
 F2::
     MouseGetPos, xPos, yPos
     PixelGetColor, colorTest, xPos, yPos
     clipboard := "x"xPos " y"yPos " = " colorTest
     MsgBox, x%xPos% y%yPos% = %colorTest%`nCopied to clipboard
     return
+F3::
+	v := checking_file()
+	if (v)
+		MsgBox, % "Tout est bon !"
+	return
 F11::
     Pause
