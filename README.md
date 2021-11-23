@@ -51,18 +51,20 @@ while True {
 ```
 
 ### Explanation
-`While True` : While it's True is True (infinite loop)
+`acceptLobby(all_values) {` : Create a function that take 1 parameter, and open the bracket (1)
+
+`While True` : While it's True is True (infinite loop) (2)
 
 `PixelGetColor` : Get the color of [Coordinate_check] pixels and store the variable in "Lobby_color"
 
-`if (lobby_color = all_values[5]) {` : If you find a match between "Lobby_color" and [Accepting_color], go in this condition
+`if (lobby_color = all_values[5]) {` : If you find a match between "Lobby_color" and [Accepting_color], go in this condition (3)
 
 `PixelGetColor` : Get the color value of [ChangingIcon_menu] x1 - y1 and store it in "icon_color"
 
-`Other 2 pixelGetColor` : same but for x1 - y2
+`Other 2 pixelGetColor` : same but for x2 - y3
 
 `if (icon_color != all_values[12] && icon_color_two != all_values[13]
-	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition
+	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition (4)
 	
 `click_x := all_values[3]` : Store the value of [Coordinate_click] x in "click_x"
 
@@ -74,9 +76,17 @@ while True {
 
 `sleep 200` : Do nothing for 200 ms again
 
-`}` : exit second condition
+`}` : exit second condition (4)
 
-`} else {` : exit first condition and enter the else
+`}` `else` `{` : exit first condition and enter the else (if you don't find a match between "Lobby_color" and [Accepting_color]) (3)(3)
+
+`sleep, 400` : sleep for 400 ms
+
+`}` : close the else condition (3)
+
+`}` : close the While True condition (2)
+
+`}` : Close the function (1)
 
 ## In case of problems
 ### The script doesn't work : what can you do ?
