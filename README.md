@@ -29,7 +29,7 @@ How to use it :
   1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
   2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/edit/main/README.md#In-case-of-problems)
 
-## Condition
+## Code
 ### Brut Code
 ```
 while True {
