@@ -78,7 +78,7 @@ while True {
 
 `}` : exit second condition (4)
 
-`}` `else` `{` : exit first condition and enter the else (if you don't find a match between "Lobby_color" and [Accepting_color]) (3)(3)
+`} else {` : exit first condition and enter the else (if you don't find a match between "Lobby_color" and [Accepting_color]) (3)(3)
 
 `sleep, 400` : sleep for 400 ms
 
