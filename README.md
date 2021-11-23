@@ -52,19 +52,32 @@ while True {
 
 ### Explanation
 `While True` : While it's True is True (infinite loop)
+
 `PixelGetColor` : Get the color of [Coordinate_check] pixels and store the variable in "Lobby_color"
+
 `if (lobby_color = all_values[5]) {` : If you find a match between "Lobby_color" and [Accepting_color], go in this condition
+
 `PixelGetColor` : Get the color value of [ChangingIcon_menu] x1 - y1 and store it in "icon_color"
+
 `Other 2 pixelGetColor` : same but for x1 - y2
-			`if (icon_color != all_values[12] && icon_color_two != all_values[13]
-					&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition
+
+`if (icon_color != all_values[12] && icon_color_two != all_values[13]
+	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition
+	
 `click_x := all_values[3]` : Store the value of [Coordinate_click] x in "click_x"
+
 `click_y := all_values[4]` : Store the value of [Coordinate_click] y in "click_y"
+
 `sleep 200` : Do nothing for 200 ms
+
 `click, %click_x%, %click_y%` : Click at "click_x" and "click_y" position
+
 `sleep 200` : Do nothing for 200 ms again
+
 `}` : exit second condition
+
 `} else {` : exit first condition and enter the else
+
 ## In case of problems
 ### The script doesn't work : what can you do ?
 
