@@ -3,7 +3,7 @@
 F2 -> get the position of the mouse (x, y) + the color (in hex) of the active window
 Display it in a messagebox and copy it to the clipboard
 
-F3 -> Check if the ("check_value.ini") file is correct (Im building this atm)
+F3 -> Check if the ("check_value.ini") file is correct
 
 F11 -> pause the script
 
