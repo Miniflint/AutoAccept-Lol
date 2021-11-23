@@ -6,7 +6,7 @@ Display it in a messagebox and copy it to the clipboard
 F11 -> pause the script
 
 ## Default Values
-The value i am trying to take are as follow :
+The value i am trying to take for the script are as follow :
   1. [Coordinate_check]
      - Riot Rp logo (X and Y)(because it's not animated)
   2. [Coordinate_click]
