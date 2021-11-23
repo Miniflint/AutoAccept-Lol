@@ -158,7 +158,7 @@ F2::
 F3::
 	v := checking_file()
 	if (v)
-		MsgBox, % "Tout est bon !"
+		MsgBox, % "The file is good. Nothing that i could detect wrong with it"
 	return
 F11::
     Pause
