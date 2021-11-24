@@ -33,7 +33,7 @@ The value i am trying to take for the script are as follow :
 
 ## Usage
 How to use it :
-  1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com){:target="_blank" rel="noopener"} installed)
+  1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
   2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
 
 ## Code
