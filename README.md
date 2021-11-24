@@ -13,6 +13,15 @@ Display it in a messagebox and copy it to the clipboard
 
 `F11` -> pause the script
 
+
+## Usage
+How to use it :
+  1. First start (optional)
+     - [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#debugging-the-script-or-first-start)
+  2. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
+  3. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
+
+
 ## Default Values
 The value i am trying to take for the script are as follow :
   1. [Coordinate_check]
@@ -31,14 +40,6 @@ The value i am trying to take for the script are as follow :
      - icon_color_three is equal to the disconnect menu's background
      - theses one is also an hexadecimal value. it's the color of the background
      - Both have the same value. but they can support different values. as long as the they are all correct (pixel coord + color)
-
-
-## Usage
-How to use it :
-  1. First start (optional)
-     - [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#debugging-the-script-or-first-start)
-  2. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
-  3. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
 
 ## Code
 ### Brut Code
