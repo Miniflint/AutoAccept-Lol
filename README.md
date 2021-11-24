@@ -131,5 +131,9 @@ In this case, it's less specific. but we can work it out anyway
   5. If the mouse go to the wrong pos, [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)(Problem n1)
 
 
-### Debugging the script
+### Debugging the script or first start
 Utils : [click here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#useful-tools-)
+ 1. Try `F3`
+    - it will check if something there is something wrong with the file
+ 2. if everything is good, try `f4`
+    - it will make your mouse move and you will visually see which one is at the wrong place
