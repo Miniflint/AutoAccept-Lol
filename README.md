@@ -1,15 +1,15 @@
 # AutoAccept-Lol
 ## Useful tools :
-F2 -> get the position of the mouse (x, y) + the color (in hex) of the active window
+`F2` -> get the position of the mouse (x, y) + the color (in hex) of the active window
 Display it in a messagebox and copy it to the clipboard
 
-F3 -> Check if the ("check_value.ini") file is correct
+`F3` -> Check if the ("check_value.ini") file is correct
 
-F4 -> Check values from the file and colors
+`F4` -> Check values from the file and colors
 
-F5 -> check color at specific pixel
+`F5` -> check color at specific pixel
 
-F11 -> pause the script
+`F11` -> pause the script
 
 ## Default Values
 The value i am trying to take for the script are as follow :
