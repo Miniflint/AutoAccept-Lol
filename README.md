@@ -2,6 +2,8 @@
 __ONLY WORKS ON WINDOWS__
 
 ## Useful tools :
+`F1` -> write the default values and take the client size to adapt the values
+
 `F2` -> get the position of the mouse (x, y) + the color (in hex) of the active window
 - Display it in a messagebox and copy it to the clipboard
 
@@ -16,7 +18,7 @@ __ONLY WORKS ON WINDOWS__
 
 ## Usage
 How to use it :
-  1. First start (optional)
+  1. First start press F1
      - [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#debugging-the-script-or-first-start)
   2. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
   3. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
@@ -137,6 +139,7 @@ In this case, it's less specific. but we can work it out anyway
 
 
 ### Debugging the script or first start
+__First start__ : Press F1 and click on your client. it will take the size and adapt the values
 Utils : [click here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#useful-tools-)
  1. Try `F3`
     - it will check if something there is something wrong with the file
