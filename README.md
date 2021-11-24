@@ -139,3 +139,4 @@ Utils : [click here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/READM
     - it will check if something there is something wrong with the file
  2. if everything is good, try `f4`
     - it will make your mouse move and you will visually see which one is at the wrong place
+ 3. if everything is still good you can try to put different value in the file ("check_value.ini")
