@@ -4,10 +4,10 @@ var_color 		:= "Accepting_color"
 var_icons		:= "ChangingIcon_menu"
 ico_color		:= "Icon_menu_color"
 
+;1 = lobby_x_check, 2 = lobby_y_check, 3 = lobby_x_click, 4 = lobby_y_click, 5 = lobby_c_check
+;6 = icon_x1_check, 7 = icon_y1_check, 8 = icon_x2_check, 9 = icon_y2_check, 10 = icon_x3_check
+;11 = icon_y3_check, 12 = icon_cr_check, 13 = icon_cr_check_two, 14 = icon_cr_check_three
 acceptLobby(all_values) {
-	;1 = lobby_x_check, 2 = lobby_y_check, 3 = lobby_x_click, 4 = lobby_y_click, 5 = lobby_c_check
-	;6 = icon_x1_check, 7 = icon_y1_check, 8 = icon_x2_check, 9 = icon_y2_check, 10 = icon_x3_check
-	;11 = icon_y3_check, 12 = icon_cr_check, 13 = icon_cr_check_two, 14 = icon_cr_check_three
     while True {
 		PixelGetColor, lobby_color, all_values[1], all_values[2]
 		if (lobby_color = all_values[5]) {
@@ -38,10 +38,10 @@ read_ini(file_name) {
 	global var_check, var_click, var_color, var_icons, ico_color
 
 	IniRead, lobby_x_check, %file_name%, %var_check%, x
-    IniRead, lobby_y_check, %file_name%, %var_check%, y
-    IniRead, lobby_x_click, %file_name%, %var_click%, x
-    IniRead, lobby_y_click, %file_name%, %var_click%, y
-    IniRead, lobby_c_check, %file_name%, %var_color%, Color
+	IniRead, lobby_y_check, %file_name%, %var_check%, y
+	IniRead, lobby_x_click, %file_name%, %var_click%, x
+	IniRead, lobby_y_click, %file_name%, %var_click%, y
+	IniRead, lobby_c_check, %file_name%, %var_color%, Color
 
 	IniRead, icon_x1_check, %file_name%, %var_icons%, x1
 	IniRead, icon_y1_check, %file_name%, %var_icons%, y1
@@ -49,7 +49,7 @@ read_ini(file_name) {
 	IniRead, icon_y2_check, %file_name%, %var_icons%, y2
 	IniRead, icon_x3_check, %file_name%, %var_icons%, x3
 	IniRead, icon_y3_check, %file_name%, %var_icons%, y3
-    IniRead, icon_cr_check, %file_name%,  %ico_color%, icon_color_one
+	IniRead, icon_cr_check, %file_name%,  %ico_color%, icon_color_one
 	IniRead, icon_cr_check_two, %file_name%,  %ico_color%, icon_color_two
 	IniRead, icon_cr_check_three, %file_name%,  %ico_color%, icon_color_three
 
@@ -68,7 +68,7 @@ write_default_values(file_name) {
 
 	ini_write(775, 22, "x", "y", var_check, file_name)
 	ini_write(500, 450, "x", "y", var_click, file_name)
-    IniWrite, 0x184757, %file_name%, %var_color%, Color
+    	IniWrite, 0x184757, %file_name%, %var_color%, Color
 
 	ini_write(227, 100, "x1", "y1", var_icons, file_name)
 	ini_write(648, 109, "x2", "y2", var_icons, file_name)
@@ -149,6 +149,25 @@ checking_file() {
 	Return 1
 }
 
+msgbox_text(x_pos, y_pos, text_msgbox, file_color = False, check_color = False) {
+	msgbox,,, % "Checking the pixel to " text_msgbox "`n" x_pos " - " y_pos "`nPlease select the client again (you have 1 sec)`nThis message will disapear in 5 seconds", 5
+	sleep 1000
+	MouseMove, %x_pos%, %y_pos%, 20
+	if (check_color)
+	{
+		PixelGetColor, color_get_output, %x_pos%, %y_pos%
+		msgbox,,, % "Color detected : " color_get_output " Color in the file : " file_color
+	}
+}
+
+mouse_move(list_pos) {
+	msgbox_text(list_pos[1], list_pos[2], "detect the riot RP logo (dark version, when the match pop-up)", list_pos[5], True)
+	msgbox_text(list_pos[3], list_pos[4], "click on the accepting")
+	msgbox_text(list_pos[6], list_pos[7], "the first exception (summoner's icon menu, by default)", list_pos[12], True)
+	msgbox_text(list_pos[8], list_pos[9], "the second exception (summoner's icon menu, by default)", list_pos[13], True)
+	msgbox_text(list_pos[10], list_pos[11], "the third exception (quit/disconnect menu)", list_pos[14], True)
+}
+
 F2::
     MouseGetPos, xPos, yPos
     PixelGetColor, colorTest, xPos, yPos
@@ -159,6 +178,18 @@ F3::
 	v := checking_file()
 	if (v)
 		MsgBox, % "The file is good. Nothing that i could detect wrong with it"
+	return
+F4::
+	my_list := read_ini("check_value.ini")
+	MsgBox, % "The mouse is gonna move alone.`nit will read the program's file input to check if everything is ok according to you"
+	mouse_move(my_list)
+	return
+F5::
+	InputBox, coordinate, Get color of specific pixel, Input your x and y coordinate `n : exemple -> 775 22`n`n and select the client
+	coordinate_split := StrSplit(coordinate, A_Space, ",")
+	sleep 1000
+	PixelGetColor, color_coordinate, coordinate_split[1], coordinate_split[2]
+	msgbox, % color_coordinate
 	return
 F11::
     Pause
