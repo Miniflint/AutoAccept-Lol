@@ -5,6 +5,10 @@ Display it in a messagebox and copy it to the clipboard
 
 F3 -> Check if the ("check_value.ini") file is correct
 
+F4 -> Check values from the file and colors
+
+F5 -> check color at specific pixel
+
 F11 -> pause the script
 
 ## Default Values
