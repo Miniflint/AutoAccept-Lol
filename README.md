@@ -129,3 +129,7 @@ In this case, it's less specific. but we can work it out anyway
   3. Press F2
   4. Try to change a value until it work (x and y should leads to one hexadecimal color)
   5. If the mouse go to the wrong pos, [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)(Problem n1)
+
+
+### Debugging the script
+Utils : [click here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Useful-tools-:)
