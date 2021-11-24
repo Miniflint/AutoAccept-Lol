@@ -33,8 +33,10 @@ The value i am trying to take for the script are as follow :
 
 ## Usage
 How to use it :
-  1. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
-  2. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
+  1. First start (optional)
+     - [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#debugging-the-script-or-first-start)
+  2. Launch the script (probably an exe file. you can also take the ahk file if you have [AutoHotKey](https://www.autohotkey.com) installed)
+  3. If it doesn't work [follow the steps bellow](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#in-case-of-problems)
 
 ## Code
 ### Brut Code
