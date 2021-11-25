@@ -263,7 +263,7 @@ mouse_move(list_pos)
 	msgbox_text(list_pos[8], list_pos[9], "the second exception (setting's menu, by default)", list_pos[15], True)
 	msgbox_text(list_pos[10], list_pos[11], "the third exception (quit's menu, by default)", list_pos[16], True)
 	msgbox_text(list_pos[12], list_pos[13], "the select exception (post's selection, by default)", list_pos[17], True)
-}
+}	
 
 F1::
 	if (FileExist(file_name))
@@ -291,6 +291,7 @@ F1::
 			}
 		}
 	}
+	Reload
 	return
 F2::
     MouseGetPos, xPos, yPos
