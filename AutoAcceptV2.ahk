@@ -44,7 +44,7 @@ Pixel_errorlevel(x, y, color_search, variation = 3)
 acceptLobby(all_values, log_check)
 {
 	game_name := "ahk_class RiotWindowClass"
-    while True
+	while True
 	{
 		if (!WinExist(game_name))
 		{
