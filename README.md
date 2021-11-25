@@ -2,18 +2,23 @@
 __ONLY WORKS ON WINDOWS__
 
 ## Useful tools :
-`F1` -> write the default values and take the client size to adapt the values
+`F1` -> Write [the default values](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#Default-Values) in ("check_value.ini")
+	- overwrite the value if the file already exists
+	- create the file if it didn't exists
 
 `F2` -> get the position of the mouse (x, y) + the color (in hex) of the active window
-- Display it in a messagebox and copy it to the clipboard
+	- Display it in a messagebox and copy it to the clipboard
 
 `F3` -> Check if the ("check_value.ini") file is correct
 
-`F4` -> Check values from the file and colors
+`F4` -> Check values from the file
+	- move the mouse at the location of the values
+	- is it useful ? yes if you need to check visually what pixels it take
 
 `F5` -> check color at specific pixel
 
 `F11` -> pause the script
+	- important if the mouse is not going where you want it to go
 
 
 ## Usage
@@ -46,63 +51,47 @@ The value i am trying to take for the script are as follow :
 ## Code
 ### Brut Code
 ```
-while True {
-		PixelGetColor, lobby_color, all_values[1], all_values[2]
-		if (lobby_color = all_values[5]) {
-			PixelGetColor, icon_color, all_values[6], all_values[7] ; x1 - y1
-			PixelGetColor, icon_color_two, all_values[8], all_values[9] ; x2 - y2
-			PixelGetColor, icon_color_three, all_values[10], all_values[11] ; x3 - y3
-			if (icon_color != all_values[12] && icon_color_two != all_values[13]
-					&& icon_color_three != all_values[14])
+acceptLobby(all_values, log_check)
+{
+	game_name := "ahk_class RiotWindowClass"
+    	while True
+	{
+		if (!WinExist(game_name))
+		{
+			accept := Pixel_errorlevel(all_values[1], all_values[2], all_values[5], 10)
+			if (accept)
 			{
-				click_x := all_values[3]
-				click_y := all_values[4]
-				sleep 200
-				click, %click_x%, %click_y%
-				sleep 200
+				error_icon 		:= Pixel_errorlevel(all_values[6], all_values[7], all_values[14])
+				error_settings	:= Pixel_errorlevel(all_values[8], all_values[9], all_values[15])
+				error_quit		:= Pixel_errorlevel(all_values[10], all_values[11], all_values[16])
+				error_post		:= Pixel_errorlevel(all_values[12], all_values[13], all_values[17], 30)
+				x = 0
+				if (!error_icon && !error_settings && !error_quit && !error_post)
+				{
+					if (x = 0)
+						if (log_check = "True")
+							Put_text("Match found")
+					click_x := all_values[3]
+					click_y := all_values[4]
+					sleep 200
+					click, %click_x%, %click_y%
+					sleep 200
+					x = 1
+				}
+			}
+			else
+			{
+				sleep, 400
 			}
 		}
+    	}   
+}
 ```
 
-### Explanation
-`acceptLobby(all_values) {` : Create a function that take 1 parameter, and open the bracket (1)
+### Quick explanation
+it's an infinite loop that will permanantly check the value of 1 pixel, if the condition is true, it will check 4 other pixels. if the condition is true, it will
+simply click on the accept button (value from : [Coordinate_click] section)
 
-`While True {` : While it's True is True (infinite loop) (2)
-
-`PixelGetColor` : Get the color of [Coordinate_check] pixels and store the variable in "Lobby_color"
-
-`if (lobby_color = all_values[5]) {` : If you find a match between "Lobby_color" and [Accepting_color], go in this condition (3)
-
-`PixelGetColor` : Get the color value of [ChangingIcon_menu] x1 - y1 and store it in "icon_color"
-
-`Other 2 pixelGetColor` : same but for x2 - y3
-
-`if (icon_color != all_values[12] && icon_color_two != all_values[13]
-	&& icon_color_three != all_values[14])` : if you don't find a match between "icon_color" and [ChangingIcon_menu] (all the 3 PixelGetColor and the color that goes with it), Go in this condition
-
-`{` open the bracket of cond 2 (4)
-
-`click_x := all_values[3]` : Store the value of [Coordinate_click] x in "click_x"
-
-`click_y := all_values[4]` : Store the value of [Coordinate_click] y in "click_y"
-
-`sleep 200` : Do nothing for 200 ms
-
-`click, %click_x%, %click_y%` : Click at "click_x" and "click_y" position
-
-`sleep 200` : Do nothing for 200 ms again
-
-`}` : exit second condition (4)
-
-`} else {` : exit first condition and enter the else (if you don't find a match between "Lobby_color" and [Accepting_color]) (3)(3)
-
-`sleep, 400` : sleep for 400 ms
-
-`}` : close the else condition (3)
-
-`}` : close the While True condition (2)
-
-`}` : Close the function (1)
 
 ## In case of problems
 ### The script doesn't work : what can you do ?
@@ -131,11 +120,10 @@ __If the mouse doesn't move :__ [click Here](https://github.com/Miniflint/AutoAc
 
 ### Problem n2 -> the mouse doesn't move
 In this case, it's less specific. but we can work it out anyway
-  1. Open the ini file ("check_value.ini")
-  2. Get un-animated element on the screen
-  3. Press F2
-  4. Try to change a value until it work (x and y should leads to one hexadecimal color)
-  5. If the mouse go to the wrong pos, [Check this](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#problem-n1-->-the-script-is-moving-the-mouse-at-the-wrong-place)(Problem n1)
+  1. Reset the ini file (press F1)
+  2. Press F3 to check the ini file
+  3. Press F4 to check where the mouse is taking the values (riot RP logo, accepting, exception 1, exception 2, exception 3, exception 4)
+  4. Watch the logs file ("log_files.log")
 
 
 ### Debugging the script or first start
