@@ -42,6 +42,7 @@ Pixel_errorlevel(x, y, color_search, variation = 3)
 
 acceptLobby(all_values, log_check)
 {
+	x = 0
 	game_name := "ahk_class RiotWindowClass"
 	while True
 	{
@@ -54,24 +55,25 @@ acceptLobby(all_values, log_check)
 				error_settings 	:= Pixel_errorlevel(all_values[8], all_values[9], all_values[15])
 				error_quit		:= Pixel_errorlevel(all_values[10], all_values[11], all_values[16])
 				error_post		:= Pixel_errorlevel(all_values[12], all_values[13], all_values[17], 30)
-				x = 0
 				if (!error_icon && !error_settings && !error_quit && !error_post)
 				{
 					if (x = 0)
 					{
 						if (log_check = "True")
 							Put_text("Match found")
-						click_x := all_values[3]
-						click_y := all_values[4]
-						sleep 200
+						click_x := all_values[3], click_y := all_values[4]
+						sleep, 200
 						click, %click_x%, %click_y%
-						sleep 200
+						sleep, 100
+						x += 1
 					}
-					x += 1
 				}
 			}
 			else
+			{
+				x = 0
 				sleep, 400
+			}
 		}
 	}
 }
