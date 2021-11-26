@@ -1,5 +1,4 @@
 #NoEnv
-SendMode Input
 SetWorkingDir %A_ScriptDir%
 
 var_check		:= "Coordinate_check"
