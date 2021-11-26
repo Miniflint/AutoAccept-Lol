@@ -127,7 +127,9 @@ In this case, it's less specific. but we can work it out anyway
 
 
 ### Debugging the script or first start
-__First start__ : Press F1 and click on your client. it will take the size and adapt the values
+__First start__ : Press F1 it will take the size and adapt the values
+
+__Debugging__ :
 Utils : [click here](https://github.com/Miniflint/AutoAccept-Lol/blob/main/README.md#useful-tools-)
  1. Try `F3`
     - it will check if something there is something wrong with the file
