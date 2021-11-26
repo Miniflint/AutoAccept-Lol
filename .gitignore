@@ -1,2 +1,5 @@
+# ignore check_value file
 check_value.ini
+
+# ignore log_files.log
 log_files.log
