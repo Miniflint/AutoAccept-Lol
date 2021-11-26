@@ -1,14 +1,15 @@
 #NoEnv
+SendMode Input
 SetWorkingDir %A_ScriptDir%
 
-var_check 		:= "Coordinate_check"
-var_click 		:= "Coordinate_click"
-var_color 		:= "Accepting_color"
+var_check		:= "Coordinate_check"
+var_click		:= "Coordinate_click"
+var_color		:= "Accepting_color"
 var_excep		:= "Exceptions"
 ico_color		:= "Icon_menu_color"
 log_file		:= "Log_File"
-my_check_list 	:= [var_check, var_click, var_color, var_excep, ico_color, log_file]
 
+my_check_list 	:= [var_check, var_click, var_color, var_excep, ico_color, log_file]
 file_name 		:= "check_value.ini"
 name 			:= "ahk_class RCLIENT"
 
@@ -28,9 +29,7 @@ Put_text(text_write, date = True)
 		FileAppend, % CurrentDateTime text_write "`n", % log_file
 	}
 	else
-	{
 		FileAppend, % text_write "`n", % log_file
-	}
 }
 
 Pixel_errorlevel(x, y, color_search, variation = 3)
@@ -59,22 +58,22 @@ acceptLobby(all_values, log_check)
 				if (!error_icon && !error_settings && !error_quit && !error_post)
 				{
 					if (x = 0)
+					{
 						if (log_check = "True")
 							Put_text("Match found")
-					click_x := all_values[3]
-					click_y := all_values[4]
-					sleep 200
-					click, %click_x%, %click_y%
-					sleep 200
-					x = 1
+						click_x := all_values[3]
+						click_y := all_values[4]
+						sleep 200
+						click, %click_x%, %click_y%
+						sleep 200
+					}
+					x += 1
 				}
 			}
 			else
-			{
 				sleep, 400
-			}
 		}
-    }   
+	}
 }
 
 ini_write(x, y, name1, name2, section_name, file_name)
@@ -137,7 +136,7 @@ write_default_values(file_name, width, height)
 	ratio := width/1024
 	ini_write(cal(775, ratio), cal(22, ratio), "x", "y", my_check_list[1], file_name)
 	ini_write(cal(511, ratio), cal(449, ratio), "x", "y", my_check_list[2], file_name)
-    IniWrite, 0x184857, %file_name%, % my_check_list[3], Color
+	IniWrite, 0x184857, %file_name%, % my_check_list[3], Color
 
 	ini_write(cal(227, ratio), cal(100, ratio), "icon_menu_x", "icon_menu_y", my_check_list[4], file_name)
 	ini_write(cal(377, ratio), cal(142, ratio), "settings_menu_x", "settings_menu_y", my_check_list[4], file_name)
@@ -153,9 +152,8 @@ main()
 {
 	global file_name, log_check
 
-    if (!FileExist(file_name)) {
+	if (!FileExist(file_name))
 		MsgBox,,, % "Couldn't find the file : " file_name "`nPress F1 to set the default values"
-    }
 	if (FileExist(file_name))
 	{
 		IniRead, log_check, %file_name%, Log_File, make_log_file
@@ -202,28 +200,28 @@ get_values(file_name, section_list, index)
 checking_file()
 {
 	global my_check_list, file_name
-	IniRead, sections, %file_name%
+	if (fileExist(file_name))
+		IniRead, sections, %file_name%
+	else
+	{
+		MsgBox,,, % "Error. couldn't find the file"
+		return
+	}
 	section_name := []
 	loop, Parse, sections, `n
 	{
 		x += 1
 		nb_section := a_index
-		section_name[x] := A_LoopField
-	}
-	if (nb_section != my_check_list.MaxIndex())
-	{
-		MsgBox, % "Incorrect number of sections :`n" %nb_section% " instead of " my_check_list.MaxIndex()
-		return 0
-	}
-	for x in my_check_list
-	{
-		if (section_name[x] != my_check_list[x])
+		if (A_LoopField != my_check_list[x])
 		{
-			MsgBox, % "Error :`nWrong section name : `n" section_name[x] " instead of " my_check_list[x]
+			if (x > my_check_list.MaxIndex())
+				MsgBox, % "Error : Too much section :`nWrong section name : " A_LoopField
+			else
+				MsgBox, % "Error :`nWrong section name : " A_LoopField " instead of " my_check_list[x]
 			return 0
 		}
 	}
-	check_section := get_values(file_name, section_name, 1)
+	check_section := get_values(file_name, my_check_list, 1)
 	if (!check_section)
 		return 0
 	Return 1
@@ -250,9 +248,7 @@ msgbox_text(x_pos, y_pos, text_msgbox, file_color = False, check_color = False)
 		}
 	}
 	else
-	{
 		msgbox, % "Couldn't detect the league of legends client"
-	}
 }
 
 mouse_move(list_pos)
@@ -294,12 +290,12 @@ F1::
 	Reload
 	return
 F2::
-    MouseGetPos, xPos, yPos
-    PixelGetColor, colorTest, xPos, yPos
-    clipboard := "x"xPos " y"yPos " = " colorTest
-    MsgBox, x%xPos% y%yPos% = %colorTest%`nCopied to clipboard
+	MouseGetPos, xPos, yPos
+	PixelGetColor, colorTest, xPos, yPos
+	clipboard := "x"xPos " y"yPos " = " colorTest
+	MsgBox, x%xPos% y%yPos% = %colorTest%`nCopied to clipboard
 	msgbox, 48,, % "Done", 1
-    return
+	return
 F3::
 	v := checking_file()
 	if (v)
