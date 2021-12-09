@@ -304,7 +304,7 @@ F3::
 	msgbox, 48,, % "Done", 2
 	return
 F4::
-	my_list := read_ini("check_value.ini")
+	my_list := read_ini(file_name)
 	MsgBox, % "The mouse is gonna move alone.`nit will read the program's file input to check if everything is ok according to you"
 	mouse_move(my_list)
 	msgbox, 48,, % "Done", 2
